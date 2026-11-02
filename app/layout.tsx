@@ -7,7 +7,7 @@ const serif = Newsreader({ subsets: ["latin"], variable: "--font-serif", weight:
 
 export const metadata: Metadata = {
   title: "Derya",
-  description: "Agents for the quoting and bidding work of industrial manufacturers.",
+  description: "Intelligence for the companies that build the physical world.",
   metadataBase: new URL("https://derya.ai"),
 };
 

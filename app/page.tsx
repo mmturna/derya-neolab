@@ -10,23 +10,11 @@ export default function Home() {
           <Mark className="mark" />
           Derya
         </span>
-        <a href="https://app.derya.ai">Sign in</a>
       </header>
 
       <main className="body">
-        <h1 className="statement">
-          Agents for the quoting and bidding work of industrial manufacturers.
-        </h1>
-        <dl className="lines">
-          <div>
-            <dt>Quotes</dt>
-            <dd>An RFQ email becomes a priced quote, checked by a person.</dd>
-          </div>
-          <div>
-            <dt>Bids</dt>
-            <dd>A tender becomes a set of requirements, each tied to its page.</dd>
-          </div>
-        </dl>
+        <h1 className="statement">Intelligence for the companies that build the physical world.</h1>
+        <p className="sub">We are building agents that work beside the people who sell what factories make.</p>
       </main>
 
       <Sea />

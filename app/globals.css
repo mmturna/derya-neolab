@@ -34,8 +34,6 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; text-decoratio
 }
 .brand { display: inline-flex; align-items: center; gap: 10px; font-size: 19px; font-weight: 500; letter-spacing: -0.01em; }
 .mark { width: 17px; height: 17px; }
-.top a { color: var(--muted); }
-.top a:hover { color: var(--ink); }
 
 .body {
   align-self: center;
@@ -48,12 +46,9 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; text-decoratio
   font-size: clamp(34px, 4.4vw, 60px);
   line-height: 1.08;
   letter-spacing: -0.022em;
-  max-width: 15em;
+  max-width: 14em;
 }
-.lines { margin: 0; display: grid; gap: 10px; }
-.lines div { display: grid; grid-template-columns: 84px 1fr; gap: 12px; }
-.lines dt { font-style: italic; color: var(--muted); }
-.lines dd { margin: 0; }
+.sub { margin: 0; max-width: 30em; color: var(--muted); font-size: 19px; }
 
 .sea {
   display: block;
@@ -74,7 +69,6 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; text-decoratio
 .aside { font-style: italic; }
 
 @media (max-width: 640px) {
-  .lines div { grid-template-columns: 1fr; gap: 0; }
   .body { padding-top: 6vh; }
 }
 
