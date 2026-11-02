@@ -1,25 +1,21 @@
-// Root layout: fonts, metadata and the film-grain overlay shared by every page.
+// Root layout: fonts and metadata for the single-page Derya site.
 import type { Metadata } from "next";
-import { DM_Sans, Geist, Geist_Mono } from "next/font/google";
+import { Geist_Mono, Source_Serif_4 } from "next/font/google";
 import "./globals.css";
 
-const display = DM_Sans({ subsets: ["latin"], variable: "--font-display", weight: ["300", "400", "500"] });
-const sans = Geist({ subsets: ["latin"], variable: "--font-sans" });
+const serif = Source_Serif_4({ subsets: ["latin"], variable: "--font-serif", weight: ["400", "500", "600"], style: ["normal", "italic"] });
 const mono = Geist_Mono({ subsets: ["latin"], variable: "--font-mono" });
 
 export const metadata: Metadata = {
-  title: { default: "Derya", template: "%s · Derya" },
+  title: "Derya",
   description: "Derya is a research lab building agents for the commercial work of industrial manufacturers.",
   metadataBase: new URL("https://derya.ai"),
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${display.variable} ${sans.variable} ${mono.variable}`}>
-      <body>
-        {children}
-        <div className="grain" aria-hidden="true" />
-      </body>
+    <html lang="en" className={`${serif.variable} ${mono.variable}`}>
+      <body>{children}</body>
     </html>
   );
 }
