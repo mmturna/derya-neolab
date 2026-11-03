@@ -12,7 +12,7 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--font);
-  font-size: 17px;
+  font-size: 18px;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
@@ -45,13 +45,13 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; text-decoratio
 }
 .statement {
   margin: 0 0 48px;
-  font-weight: 300;
+  font-weight: 400;
   font-size: clamp(34px, 4.4vw, 60px);
   line-height: 1.08;
   letter-spacing: -0.022em;
   max-width: 14em;
 }
-.sub { margin: 0; max-width: 30em; color: var(--muted); font-size: 19px; }
+.sub { margin: 0; max-width: 30em; color: var(--muted); font-size: 20px; }
 .more { display: inline-block; margin-top: 28px; font-style: italic; border-bottom: 1px solid var(--muted); }
 .more:hover { text-decoration: none; border-color: var(--ink); }
 
@@ -61,18 +61,18 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; text-decoratio
 }
 .reading-title {
   margin: 0 0 56px;
-  font-weight: 300;
+  font-weight: 400;
   font-size: clamp(30px, 3.4vw, 46px);
   line-height: 1.12;
   letter-spacing: -0.02em;
   max-width: 17em;
 }
-.prose { max-width: 34em; font-size: 19px; line-height: 1.6; }
+.prose { max-width: 34em; font-size: 20px; line-height: 1.6; }
 .prose p { margin: 0 0 1.1em; }
 .principles { list-style: none; margin: 0; padding: 0; counter-reset: p; }
 .principles li { counter-increment: p; display: grid; grid-template-columns: 44px 1fr; margin-bottom: 30px; }
 .principles li::before { content: counter(p, upper-roman) "."; font-style: italic; color: var(--muted); }
-.principles h2 { grid-column: 2; margin: 0 0 4px; font-size: 19px; font-weight: 500; }
+.principles h2 { grid-column: 2; margin: 0 0 4px; font-size: 20px; font-weight: 500; }
 .principles p { grid-column: 2; margin: 0; }
 
 .sea {
@@ -98,7 +98,7 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; text-decoratio
   .body { padding-top: 6vh; }
   .nav { gap: 18px; }
   .reading { padding-top: 7vh; }
-  .prose { font-size: 18px; }
+  .prose { font-size: 19px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
