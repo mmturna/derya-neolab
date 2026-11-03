@@ -1,66 +1,29 @@
-// Bell Labs version, home: a system banner and a fetch-style readout of what Derya is.
+// Bell Labs versions index: the five takes, each a full four-page site.
 import type { Metadata } from "next";
-import { STATEMENT } from "../content";
-import { Globe } from "./components/globe";
-import { Prompt, Terminal } from "./components/terminal";
+import Link from "next/link";
+import { VERSIONS } from "./sections";
+import s from "./index.module.css";
 
 export const metadata: Metadata = { title: "Derya Laboratories" };
 
-const BANNER = [
-  ["INSTALLATION", "26-0001"],
-  ["EQUIPMENT", "COMMERCIAL AGENT TERMINAL"],
-  ["SERVICE", "DERYA"],
-  ["OPERATING SYS", "SOURCE-CITED INTELLIGENCE"],
-  ["MAINTENANCE", "A PERSON APPROVES EVERYTHING"],
-];
-
-const READOUT = [
-  ["MISSION", STATEMENT],
-  ["OPERATORS", "The people who sell what factories make"],
-  ["FACTS", "Cited to source. Unknowns stay unknown"],
-  ["RULES", "Written down. Models do not invent the numbers"],
-  ["OUTBOUND", "Nothing leaves without a person saying yes"],
-  ["KNOWLEDGE", "Each company keeps its own"],
-];
-
-export default function BellHome() {
+export default function BellIndex() {
   return (
-    <Terminal active="home">
-      <section className="block">
-        <p>DERYA LABORATORIES</p>
-        <p>INDUSTRIAL SYSTEMS DIVISION</p>
-      </section>
-      <dl className="block banner">
-        {BANNER.map(([key, value]) => (
-          <div key={key}>
-            <dt>{key}:</dt>
-            <dd>{value}</dd>
-          </div>
+    <main className={s.page}>
+      <p className={s.head}>Derya Laboratories, five versions</p>
+      <ol className={s.list}>
+        {VERSIONS.map((v, i) => (
+          <li key={v.slug}>
+            <Link href={`/bell/${v.slug}/`}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img className={s.thumb} src={`${process.env.NEXT_PUBLIC_BASE_PATH}/bell/${v.slug}.jpg`} alt="" width={640} height={400} />
+              <span className={s.n}>{String(i + 1).padStart(2, "0")}</span>
+              <span className={s.name}>{v.name}</span>
+              <span className={s.note}>{v.note}</span>
+            </Link>
+          </li>
         ))}
-      </dl>
-      <p className="block">ALL SYSTEMS NOMINAL.</p>
-      <section className="block">
-        <p>NOTICE:</p>
-        <p>THIS TERMINAL SERVES THE COMPANIES</p>
-        <p>THAT BUILD THE PHYSICAL WORLD.</p>
-      </section>
-      <p className="block">UNSOURCED FACTS ARE NOT PERMITTED.</p>
-      <Prompt command="derya-fetch" />
-      <section className="fetch block">
-        <Globe className="globe" />
-        <dl className="readout">
-          {READOUT.map(([key, value]) => (
-            <div key={key}>
-              <dt>{key}</dt>
-              <dd>{value}</dd>
-            </div>
-          ))}
-          <div className="gap">
-            <dt>STATUS</dt>
-            <dd>ALL SYSTEMS NOMINAL</dd>
-          </div>
-        </dl>
-      </section>
-    </Terminal>
+      </ol>
+      <Link href="/" className={s.home}>Main site</Link>
+    </main>
   );
 }

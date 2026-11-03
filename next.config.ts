@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
   output: process.env.STATIC_EXPORT ? "export" : undefined,
   basePath,
   trailingSlash: true,
+  env: { NEXT_PUBLIC_BASE_PATH: basePath },
 };
 
 export default nextConfig;

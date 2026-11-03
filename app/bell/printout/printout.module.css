@@ -1,0 +1,51 @@
+/* Printout version: fanfold paper with tractor holes and green bars every three lines. */
+.desk {
+  --line: 24px;
+  min-height: 100svh;
+  background: #d8d6cf;
+  color: #2b2d33;
+  font-family: var(--printout-font), "Courier New", monospace;
+  font-size: 13.5px;
+  line-height: var(--line);
+  text-transform: uppercase;
+  padding: calc(var(--line) * 2) clamp(0px, 3vw, 40px) var(--line);
+}
+.paper { display: flex; max-width: 1000px; margin: 0 auto; background: #fbfbf6; box-shadow: 0 10px 30px -20px rgba(0, 0, 0, 0.4); }
+.feed {
+  flex: none;
+  width: 40px;
+  background:
+    radial-gradient(circle at 50% 50%, #d8d6cf 0 6px, transparent 6.5px) 0 0 / 40px var(--line) repeat-y,
+    #fbfbf6;
+}
+.feed:first-child { border-right: 1px dashed rgba(0, 0, 0, 0.18); }
+.feed:last-child { border-left: 1px dashed rgba(0, 0, 0, 0.18); }
+.sheet {
+  flex: 1;
+  min-width: 0;
+  padding: var(--line) clamp(16px, 3vw, 36px) calc(var(--line) * 2);
+  background: repeating-linear-gradient(#fbfbf6 0 calc(var(--line) * 3), #dcebd8 calc(var(--line) * 3) calc(var(--line) * 6));
+  background-position: 0 var(--line);
+}
+.head { display: flex; justify-content: space-between; gap: 16px; }
+.index, .row { display: grid; grid-template-columns: 9ch 1fr; gap: 2ch; }
+.index { margin-top: var(--line); }
+.links { display: flex; flex-wrap: wrap; gap: 0 3ch; }
+.links a { text-decoration: none; }
+.links a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.on::before { content: "> "; }
+.title { margin: calc(var(--line) * 2) 0 var(--line); font: inherit; font-weight: 600; }
+.row p { margin: 0 0 var(--line); max-width: 72ch; }
+.row b { font-weight: 600; }
+.status { display: block; opacity: 0.6; }
+.banner { margin: var(--line) 0 calc(var(--line) * 2); font: inherit; font-weight: 600; overflow: hidden; }
+.end { margin: calc(var(--line) * 2) 0 0; text-align: center; opacity: 0.7; }
+.back { display: block; max-width: 1000px; margin: var(--line) auto 0; color: #7b7a74; font-size: 12px; text-align: right; text-transform: none; }
+
+@media (max-width: 640px) {
+  .desk { font-size: 12px; }
+  .feed { width: 22px; background-size: 22px var(--line); }
+  .index, .row { grid-template-columns: 1fr; gap: 0; }
+  .banner { font-size: 9px; }
+  .head span:nth-child(2) { display: none; }
+}

@@ -1,0 +1,54 @@
+/* Drawing version: a blueprint sheet with a border, zone letters, a faint grid and a title block. */
+.desk {
+  min-height: 100svh;
+  background: #1c3f73;
+  color: #eaf1fb;
+  font-family: var(--drawing-font), "Arial Narrow", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: clamp(10px, 2.4vw, 28px);
+}
+.frame {
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  min-height: calc(100svh - clamp(10px, 2.4vw, 28px) * 2 - 30px);
+  border: 1px solid rgba(234, 241, 251, 0.75);
+  outline: 1px solid rgba(234, 241, 251, 0.35);
+  outline-offset: 6px;
+  background-image:
+    linear-gradient(rgba(234, 241, 251, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(234, 241, 251, 0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+.zones { position: absolute; inset: 0 auto 0 -20px; display: flex; flex-direction: column; justify-content: space-around; font-size: 11px; opacity: 0.6; }
+.field { padding: clamp(20px, 4vw, 48px); max-width: 1080px; }
+.heading { margin: 0; max-width: 24em; font-size: clamp(22px, 3vw, 34px); font-weight: 400; line-height: 1.15; letter-spacing: 0.06em; }
+.sub { margin: 12px 0 0; max-width: 40em; opacity: 0.8; }
+.figure { margin: clamp(24px, 5vw, 48px) 0 8px; max-width: 900px; }
+.figure svg { display: block; width: 100%; height: auto; }
+.notes { margin-top: 28px; max-width: 46em; }
+.notes h2 { margin: 0 0 6px; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-decoration: underline; text-underline-offset: 4px; }
+.notes ol { margin: 0; padding-left: 2em; }
+.notes li { margin-bottom: 8px; }
+.block { justify-self: end; display: grid; grid-template-columns: repeat(5, auto) minmax(180px, auto); border-top: 1px solid rgba(234, 241, 251, 0.75); border-left: 1px solid rgba(234, 241, 251, 0.75); }
+.cell { display: flex; flex-direction: column; gap: 2px; padding: 6px 12px 8px; border-right: 1px solid rgba(234, 241, 251, 0.4); font-size: 13px; }
+.cell:last-child { border-right: 0; }
+.cell span { font-size: 10px; letter-spacing: 0.14em; opacity: 0.65; }
+.cell b { font-weight: 500; letter-spacing: 0.08em; }
+.sheets a { opacity: 0.75; }
+.sheets a:hover { opacity: 1; text-decoration: none; }
+.on { opacity: 1 !important; font-weight: 500; }
+.on::before { content: "\25B8  "; }
+.back { display: block; margin-top: 10px; color: rgba(234, 241, 251, 0.5); font-size: 12px; text-align: right; text-transform: none; }
+
+@media (max-width: 800px) {
+  .block { justify-self: stretch; grid-template-columns: repeat(3, auto); border-left: 0; }
+  .cell:nth-child(4) { grid-column: span 2; }
+  .cell { border-bottom: 1px solid rgba(234, 241, 251, 0.4); }
+  .sheets { grid-column: 1 / -1; }
+  .zones { display: none; }
+}
