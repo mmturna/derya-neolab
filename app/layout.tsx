@@ -1,9 +1,10 @@
-// Root layout: font and metadata for the single-page Derya site.
+// Root layout: fonts and metadata shared by every page of the Derya site.
 import type { Metadata } from "next";
-import { EB_Garamond } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const serif = EB_Garamond({ subsets: ["latin"], variable: "--font-serif", weight: ["400", "500"], style: ["normal", "italic"] });
+const sans = Geist({ subsets: ["latin"], variable: "--font-sans", weight: ["300", "400", "500"] });
+const mono = Geist_Mono({ subsets: ["latin"], variable: "--font-mono", weight: ["400"] });
 
 export const metadata: Metadata = {
   title: "Derya",
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={serif.variable}>
+    <html lang="en" className={`${sans.variable} ${mono.variable}`}>
       <body>{children}</body>
     </html>
   );

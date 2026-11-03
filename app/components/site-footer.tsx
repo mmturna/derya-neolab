@@ -3,7 +3,7 @@ export function SiteFooter() {
   return (
     <footer className="bottom">
       <span>© 2026</span>
-      <span className="aside">derya, n. the sea</span>
+      <span>derya, n. the sea</span>
     </footer>
   );
 }
