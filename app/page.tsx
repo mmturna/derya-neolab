@@ -1,28 +1,20 @@
-// Home: the whole site on one quiet page, a short statement over an engraved sea.
-import { Mark } from "./components/mark";
+// Home: a short statement over an engraved sea, with a way into the vision.
+import Link from "next/link";
 import { Sea } from "./components/sea";
+import { SiteFooter } from "./components/site-footer";
+import { SiteHeader } from "./components/site-header";
 
 export default function Home() {
   return (
     <div className="page">
-      <header className="top">
-        <span className="brand">
-          <Mark className="mark" />
-          Derya
-        </span>
-      </header>
-
+      <SiteHeader />
       <main className="body">
         <h1 className="statement">Intelligence for the companies that build the physical world.</h1>
         <p className="sub">We are building agents that work beside the people who sell what factories make.</p>
+        <Link href="/vision/" className="more">Read the vision</Link>
       </main>
-
       <Sea />
-
-      <footer className="bottom">
-        <span>© 2026</span>
-        <span className="aside">derya, n. the sea</span>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

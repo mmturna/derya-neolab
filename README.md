@@ -1,6 +1,6 @@
 # derya-neolab
 
-The public Derya website: one Next.js page (`app/page.tsx`) with an engraved sea (`app/components/sea.tsx`).
+The public Derya website: a home page (`app/page.tsx`), Vision, Principles and About pages, and an engraved sea (`app/components/sea.tsx`). Every push to main deploys to GitHub Pages (`.github/workflows/pages.yml`).
 
 ```
 npm install

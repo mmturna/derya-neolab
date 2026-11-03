@@ -22,9 +22,9 @@ function wavePath(index: number) {
 
 const WAVES = Array.from({ length: LINES }, (_, i) => wavePath(i));
 
-export function Sea() {
+export function Sea({ className = "sea" }: { className?: string }) {
   return (
-    <svg className="sea" viewBox={`0 -12 ${PERIOD} ${HEIGHT + 24}`} preserveAspectRatio="none" aria-hidden="true">
+    <svg className={className} viewBox={`0 -12 ${PERIOD} ${HEIGHT + 24}`} preserveAspectRatio="none" aria-hidden="true">
       {WAVES.map((wave, i) => (
         <path
           key={i}
