@@ -261,9 +261,9 @@ export function Scene() {
     let raf = 0, prev = 0;
     if (still) {
       leap(cols * 0.12, 1, 0);
-      for (let t = 0; t < 0.95; t += 1 / 30) step(t, 1 / 30);
+      for (let t = 0; t < 0.6; t += 1 / 30) step(t, 1 / 30);
       bits.length = 0;
-      draw = () => frame(0.95);
+      draw = () => frame(0.6);
       draw();
       return () => { ro.disconnect(); mo.disconnect(); canvas.removeEventListener("pointerdown", onDown); };
     }
