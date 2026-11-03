@@ -6,7 +6,7 @@ import {
   VISION, VISION_TITLE, WHO_CLOSE, WHO_COMPANIES, WHO_INTRO, WHO_PEOPLE, WHO_TITLE,
 } from "../../../content";
 import { type Page, PAGES, pageHref, pageOf, pageParams } from "../pages";
-import { Ship } from "../sea";
+import { Scene } from "../scene";
 import { ThemePicker } from "../theme";
 import s from "../manual.module.css";
 
@@ -55,7 +55,6 @@ function Home() {
   const rest = PAGES.slice(1);
   return (
     <>
-      <Ship />
       <h1 className={s.statement}>{STATEMENT}</h1>
       <p className={s.lede}>{SUPPORT}</p>
       <Rule />
@@ -72,6 +71,8 @@ function Home() {
           </Link>
         ))}
       </nav>
+      <Rule />
+      <Scene />
     </>
   );
 }

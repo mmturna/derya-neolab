@@ -1,11 +1,11 @@
 /* Manual version: CLI-style ledger pages, ===== rules, a condensed mono face and four colour themes. */
 .root {
-  --bg: #fbfbf8; --fg: #141414; --mute: #6f6f69; --hi-bg: #141414; --hi-fg: #fbfbf8;
+  --bg: #fbfbf8; --fg: #141414; --mute: #6f6f69; --hi-bg: #141414; --hi-fg: #fbfbf8; --accent: #5b5fa8;
   background: var(--bg); color: var(--fg); min-height: 100svh;
 }
-.root[data-theme="green"] { --bg: #2bf43b; --fg: #0b1a0c; --mute: #1f5d24; --hi-bg: #0b1a0c; --hi-fg: #2bf43b; }
-.root[data-theme="blue"] { --bg: #1626f0; --fg: #f4f5ff; --mute: #aab0ff; --hi-bg: #f4f5ff; --hi-fg: #1626f0; }
-.root[data-theme="black"] { --bg: #050505; --fg: #ececea; --mute: #8b8b86; --hi-bg: #ececea; --hi-fg: #050505; }
+.root[data-theme="green"] { --bg: #2bf43b; --fg: #0b1a0c; --mute: #1f5d24; --hi-bg: #0b1a0c; --hi-fg: #2bf43b; --accent: #0a6b1a; }
+.root[data-theme="blue"] { --bg: #1626f0; --fg: #f4f5ff; --mute: #aab0ff; --hi-bg: #f4f5ff; --hi-fg: #1626f0; --accent: #7ff3ff; }
+.root[data-theme="black"] { --bg: #050505; --fg: #ececea; --mute: #8b8b86; --hi-bg: #ececea; --hi-fg: #050505; --accent: #8a8cff; }
 
 .page {
   font-family: var(--manual-font), ui-monospace, monospace;
@@ -40,12 +40,9 @@
 .nav a:hover { text-decoration: underline; text-underline-offset: 4px; }
 .nav a[aria-current="page"] { background: var(--hi-bg); color: var(--hi-fg); }
 
-.main { padding: 28px 0 8px; }
+.main { padding: 48px 0 0; }
 
-.art { margin: 0 0 36px; font-size: min(13px, 1.85vw); line-height: 1.2; overflow: hidden; }
-.art pre { font: inherit; font-size: inherit; line-height: inherit; margin: 0; white-space: pre; }
-.ship { width: fit-content; margin: 0 auto !important; }
-.sea { overflow: hidden; }
+.scene { display: block; width: 100%; height: clamp(320px, 44vw, 460px); margin: 8px 0 0; touch-action: manipulation; cursor: pointer; }
 
 .statement { font-size: clamp(26px, 4.2vw, 44px); line-height: 1.15; font-weight: 400; letter-spacing: -0.01em; margin: 0 0 14px; max-width: 22ch; }
 .lede { font-size: 17px; color: var(--mute); margin: 0 0 40px; max-width: 52ch; }
