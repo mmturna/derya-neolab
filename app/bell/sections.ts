@@ -5,7 +5,7 @@ export const SECTIONS: Section[] = ["home", "vision", "principles", "about"];
 
 export const VERSIONS = [
   { slug: "memo", name: "Memorandum", note: "A typed internal memo. The pages are its attachments." },
-  { slug: "manual", name: "Manual", note: "A typeset page from a programmer's manual." },
+  { slug: "manual", name: "Manual", note: "A command-line manual with an ASCII ship, research and who we help." },
   { slug: "journal", name: "Journal", note: "The cover and articles of a technical journal." },
   { slug: "printout", name: "Printout", note: "A line printer run on green-bar fanfold paper." },
   { slug: "drawing", name: "Drawing", note: "An engineering drawing in four sheets." },

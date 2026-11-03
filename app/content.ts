@@ -40,3 +40,42 @@ export const ABOUT = [
   "Derya builds agents for the commercial side of industrial manufacturing. It was founded by Mert Turna. We are early, and deliberately small.",
   "The name is the Turkish word for the sea. Most of what factories make crosses one on the way to where it is used.",
 ];
+
+export const WHO_TITLE = "Manufacturers that make things to order, and the people who sell them.";
+export const WHO_INTRO =
+  "Derya is for industrial companies whose products are engineered, specified and priced job by job. Their commercial teams are small, expert and stretched.";
+export const WHO_COMPANIES = [
+  "Machine shops and fabricators",
+  "Foundries and forges",
+  "Makers of motors, pumps, valves and switchgear",
+  "Component suppliers to energy, infrastructure and transport",
+];
+export const WHO_PEOPLE = [
+  { role: "Sales engineers", text: "Read specifications and drawings to work out what a customer actually needs." },
+  { role: "Estimators", text: "Turn requirements into a cost they can stand behind." },
+  { role: "Inside sales", text: "Answer the steady flow of customer email, every day." },
+  { role: "Tender teams", text: "Work through long public tenders against a deadline." },
+  { role: "Commercial leads", text: "Decide which work is worth chasing." },
+];
+export const WHO_CLOSE = "Derya's agents do the reading and the preparation. The people above make every call.";
+
+export const RESEARCH_TITLE = "Notes from the lab.";
+export const RESEARCH_INTRO = "We publish what we learn about agents that act on changing facts, including the results that came out null.";
+export const RESEARCH = [
+  {
+    year: "2026",
+    title: "When Must an Agent Remember?",
+    kind: "Paper",
+    text: "When the facts behind a job keep changing, does giving an agent a compact record of the current state help it take the right action, compared with searching its full history?",
+    href: null,
+    status: "Not yet public",
+  },
+  {
+    year: "2026",
+    title: "Corvus: successful but inapplicable memories",
+    kind: "Research note",
+    text: "An agent is shown a past case that succeeded. The current case looks the same, but calls for a different action. Does the agent copy the precedent?",
+    href: "https://mmturna.github.io/corvus/",
+    status: "Read",
+  },
+] as const;

@@ -1,34 +1,99 @@
-/* Manual version: a typeset manual page, running heads, bold section names and a hanging indent. */
-.page {
-  min-height: 100svh;
-  background: #fdfdfa;
-  color: #111;
-  font-family: var(--manual-font), "Times New Roman", serif;
-  font-size: 18px;
-  line-height: 1.42;
-  padding: clamp(24px, 6vw, 72px) clamp(18px, 5vw, 48px) 40px;
+/* Manual version: CLI-style ledger pages, ===== rules, a condensed mono face and four colour themes. */
+.root {
+  --bg: #fbfbf8; --fg: #141414; --mute: #6f6f69; --hi-bg: #141414; --hi-fg: #fbfbf8;
+  background: var(--bg); color: var(--fg); min-height: 100svh;
 }
-.sheet { max-width: 740px; margin: 0 auto; }
-.run { display: flex; justify-content: space-between; gap: 16px; font-size: 16px; }
-.run span:nth-child(2) { font-style: italic; }
-.sheet > .run:last-child { margin-top: 72px; }
-.sh { margin-top: 26px; }
-.sh h2 { margin: 0; font-size: inherit; font-weight: 700; letter-spacing: 0.02em; }
-.in { padding-left: 4.2em; }
-.in p { margin: 0.15em 0 0.7em; text-align: justify; hyphens: auto; }
-.syn { text-align: left !important; }
-.tp { margin: 0.6em 0 0; }
-.tp div { margin-bottom: 0.8em; }
-.tp dt { font-weight: 700; }
-.tp dd { margin: 0 0 0 2.6em; text-align: justify; hyphens: auto; }
-.ref { white-space: nowrap; }
-.ref:hover { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
-.back { display: block; max-width: 740px; margin: 28px auto 0; color: #999; font-size: 14px; text-align: right; }
+.root[data-theme="green"] { --bg: #2bf43b; --fg: #0b1a0c; --mute: #1f5d24; --hi-bg: #0b1a0c; --hi-fg: #2bf43b; }
+.root[data-theme="blue"] { --bg: #1626f0; --fg: #f4f5ff; --mute: #aab0ff; --hi-bg: #f4f5ff; --hi-fg: #1626f0; }
+.root[data-theme="black"] { --bg: #050505; --fg: #ececea; --mute: #8b8b86; --hi-bg: #ececea; --hi-fg: #050505; }
 
-@media (max-width: 640px) {
-  .page { font-size: 16.5px; }
-  .run { font-size: 13px; }
-  .in { padding-left: 1.6em; }
-  .in p, .tp dd { text-align: left; }
-  .tp dd { margin-left: 1.4em; }
+.page {
+  font-family: var(--manual-font), ui-monospace, monospace;
+  font-stretch: 75%;
+  font-size: 15px;
+  line-height: 1.6;
+  padding: clamp(18px, 4vw, 48px) clamp(14px, 4vw, 40px) 32px;
+}
+.page a { color: inherit; text-decoration: none; }
+.page ::selection { background: var(--hi-bg); color: var(--hi-fg); }
+.page a:focus-visible, .page button:focus-visible { outline: 1px dashed currentColor; outline-offset: 3px; }
+.sheet { max-width: 980px; margin: 0 auto; }
+
+.rule { display: flex; align-items: baseline; white-space: nowrap; overflow: hidden; line-height: 1.3; user-select: none; }
+.rule span { flex: 1; overflow: hidden; }
+.rule b { font-weight: 400; padding-left: 0; }
+
+.top { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; padding: 2px 0; }
+.mark { letter-spacing: 0.04em; }
+.themes { display: flex; gap: 14px; }
+.themes button {
+  font: inherit; font-stretch: inherit; color: var(--mute); background: none; border: 0; padding: 0; cursor: pointer;
+}
+.themes button:hover { color: var(--fg); }
+.root[data-theme="paper"] .themes [data-t="paper"],
+.root[data-theme="green"] .themes [data-t="green"],
+.root[data-theme="blue"] .themes [data-t="blue"],
+.root[data-theme="black"] .themes [data-t="black"] { color: var(--fg); text-decoration: underline; text-underline-offset: 4px; }
+
+.nav { display: flex; flex-wrap: wrap; gap: 4px 22px; padding: 6px 0; }
+.nav a { padding: 0 4px; margin: 0 -4px; }
+.nav a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.nav a[aria-current="page"] { background: var(--hi-bg); color: var(--hi-fg); }
+
+.main { padding: 28px 0 8px; }
+
+.art { margin: 0 0 36px; font-size: min(13px, 1.85vw); line-height: 1.2; overflow: hidden; }
+.art pre { font: inherit; font-size: inherit; line-height: inherit; margin: 0; white-space: pre; }
+.ship { width: fit-content; margin: 0 auto !important; }
+.sea { overflow: hidden; }
+
+.statement { font-size: clamp(26px, 4.2vw, 44px); line-height: 1.15; font-weight: 400; letter-spacing: -0.01em; margin: 0 0 14px; max-width: 22ch; }
+.lede { font-size: 17px; color: var(--mute); margin: 0 0 40px; max-width: 52ch; }
+.caption { margin: 0; }
+
+.row { display: grid; grid-template-columns: 4ch 16ch 14ch 1fr; gap: 0 2ch; padding: 3px 0; }
+.link { padding: 6px 4px; margin: 0 -4px; }
+.link span:last-child { color: var(--mute); }
+.link:hover { background: var(--hi-bg); color: var(--hi-fg); }
+.link:hover span:last-child { color: var(--hi-fg); }
+
+.table { list-style: none; margin: 0; padding: 0; }
+.table .row { padding: 8px 0; }
+.three { grid-template-columns: 4ch 24ch 1fr; }
+.two { grid-template-columns: 4ch 1fr; }
+.paper { grid-template-columns: 6ch 14ch 1fr 16ch; }
+.table b { font-weight: 600; }
+.abs { display: block; color: var(--mute); margin-top: 4px; max-width: 64ch; }
+.go { text-align: right; text-decoration: underline !important; text-underline-offset: 4px; }
+.muted { color: var(--mute); text-align: right; }
+.rule + .prose, .table + .rule + .prose { margin-top: 22px; }
+
+.prompt { color: var(--mute); margin: 0 0 10px; }
+.h1 { font-size: clamp(22px, 3.2vw, 32px); line-height: 1.2; font-weight: 400; margin: 0 0 28px; max-width: 30ch; }
+.prose { max-width: 70ch; margin: 0 0 24px; }
+.prose p { margin: 0 0 1.1em; font-size: 16px; line-height: 1.7; display: grid; grid-template-columns: 4ch 1fr; }
+.prose p:only-child { display: block; }
+.pn { color: var(--mute); }
+
+.next { display: inline-block; margin: 8px 0 20px; color: var(--mute); }
+.next:hover { color: var(--fg); text-decoration: underline; text-underline-offset: 4px; }
+
+.foot { display: flex; justify-content: space-between; gap: 16px; padding: 2px 0; color: var(--mute); }
+.back { display: block; max-width: 980px; margin: 22px auto 0; color: var(--mute); text-align: right; }
+
+@media (max-width: 720px) {
+  .page { font-size: 14px; }
+  .top { row-gap: 2px; }
+  .row { grid-template-columns: 4ch 1fr; }
+  .row > span:nth-child(2) { display: none; }
+  .link span:nth-child(3) { grid-column: 2; }
+  .link span:nth-child(4) { grid-column: 2; }
+  .head { display: none; }
+  .three, .paper { grid-template-columns: 4ch 1fr; }
+  .three > :nth-child(3), .paper > :nth-child(3), .paper > :nth-child(4) { grid-column: 2; }
+  .three > span:nth-child(2), .paper > span:nth-child(2) { display: inline; }
+  .three > b { display: block; }
+  .go, .muted { text-align: left; }
+  .lede { font-size: 15px; }
+  .prose p { font-size: 15px; }
 }

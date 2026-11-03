@@ -1,8 +1,9 @@
-// Manual version: a Times-style face for a typeset manual page.
-import { Tinos } from "next/font/google";
+// Manual version: a condensed monospace face and the colour theme shell for the CLI-style manual.
+import { Martian_Mono } from "next/font/google";
+import { ThemeShell } from "./theme";
 
-const type = Tinos({ subsets: ["latin"], weight: ["400", "700"], style: ["normal", "italic"], variable: "--manual-font" });
+const type = Martian_Mono({ subsets: ["latin"], axes: ["wdth"], variable: "--manual-font" });
 
 export default function ManualLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <div className={type.variable}>{children}</div>;
+  return <ThemeShell className={type.variable}>{children}</ThemeShell>;
 }
